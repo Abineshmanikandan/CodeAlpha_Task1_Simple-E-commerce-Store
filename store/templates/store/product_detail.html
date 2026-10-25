@@ -1,0 +1,31 @@
+{% extends 'store/base.html' %}
+
+{% block title %}{{ product.name }} - E-Commerce Store{% endblock %}
+
+{% block content %}
+
+<div class="product-card">
+
+    {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    {% endif %}
+
+    <h1>{{ product.name }}</h1>
+
+    <p>{{ product.description }}</p>
+
+    <h2>₹{{ product.price }}</h2>
+
+    <p>Stock: {{ product.stock }}</p>
+
+    {% if product.stock > 0 %}
+        <a class="btn" href="{% url 'add_to_cart' product.id %}">
+            Add to Cart
+        </a>
+    {% else %}
+        <p class="error">Out of Stock</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Order Successful{% endblock %}
+
+{% block content %}
+
+<div class="form-box">
+
+    <h1>🎉 Order Placed Successfully!</h1>
+
+    <p>
+        Thank you for your purchase.
+    </p>
+
+    <p>
+        <strong>Order ID:</strong> #{{ order.id }}
+    </p>
+
+    <p>
+        <strong>Total Amount:</strong>
+        ₹{{ order.total_amount }}
+    </p>
+
+    <p>
+        <strong>Status:</strong>
+        {{ order.status }}
+    </p>
+
+    <br>
+
+    <a class="btn" href="{% url 'home' %}">
+        Continue Shopping
+    </a>
+
+</div>
+
+{% endblock %}

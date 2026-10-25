@@ -1,0 +1,37 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<div class="form-box">
+
+    <h1>Create Account</h1>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Username</label>
+        <input type="text" name="username" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <button class="btn" type="submit">Register</button>
+    </form>
+
+    <p>
+        Already have an account?
+        <a href="{% url 'login' %}">Login</a>
+    </p>
+
+</div>
+
+{% endblock %}
